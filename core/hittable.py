@@ -38,6 +38,8 @@ class Sphere(Hittable):
         self.color = color
 
     def hit(self, ray: Ray.TYPE, t_min: double, t_max: double, hit_record: Record.TYPE) -> bool:
+        # this code was taken from https://raytracing.github.io/books/RayTracingInOneWeekend.html#surfacenormalsandmultipleobjects/anabstractionforhittableobjects
+
         oc = ray["o"] - self.center
         a = sum(ray["d"] ** 2, axis=-1)
         half_b = inner(oc, ray["d"])
